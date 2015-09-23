@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Wikipedia Viewer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <body>
+  <div ng-app='wikiApp'>
+    <div class='container-fluid full-height centered' ng-controller='appCtrl'>
+      <div class='row'>
+        <div class='col-md-12'>
+          <form ng-submit="search()">
+            <input type='text' class='form-control searchbar' id='searchbar' placeholder='Search Wikipedia' ng-submit='search()'></input>
+            <input type='submit' style='visibility: hidden;'></input>
+          </form>
+          <div id='autoData'></div>
+          <div class='results'>
+            <div ng-repeat='result in results' class='queryResults'>
+              <div class='row'>
+                <div class='col-md-12'>
+                  <h2>{{result.title}}</h2>
+                </div>
+                <!-- col-md-12 -->
+              </div>
+              <!-- row -->
+              <div class='row'>
+                <div class='col-md-12'>
+                  <p>{{result.extract}}</p>
+                </div>
+                <!-- col-md-12 -->
+              </div>
+              <!-- row -->
+              <div class='row'>
+                <div class='col-lg-6'>
+                  <a ng-href={{result.link}} target="_blank">Read this entry</a>
+                </div>
+                <!-- col-md-6 -->
+                <div class='col-md-6'>
+                  <a ng-href={{result.edit}} target='_blank'>Edit this entry</a>
+                </div>
+                <!-- col-md-6 -->
+              </div>
+              <!-- row -->
+            </div>
+            <!-- ng-repeat -->
+          </div>
+          <!-- results -->
+        </div>
+        <!-- col-md-12 -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- ng-app -->
+</body>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
