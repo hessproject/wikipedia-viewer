@@ -1,7 +1,10 @@
 var app = angular.module('wikiApp', []);
 
 app.controller('appCtrl', ['$scope', '$http', function($scope, $http) {
+  //initializing variables
   $scope.results = [];
+  
+  //actual search and API call
   $scope.search = function() {
     $scope.results = [];
     var endpoint = 'http://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&prop=extracts|pageimages|info&exsentences=1&exlimit=20&pilimit=3&inprop=url&explaintext&excontinue&exintro&gsrsearch='
@@ -22,6 +25,7 @@ app.controller('appCtrl', ['$scope', '$http', function($scope, $http) {
 
 }]);
 
+//jQueryUI autocomplete for search
 $("#searchbar").autocomplete({
   source: function(request, response) {
     $.ajax({
@@ -46,6 +50,7 @@ $("#searchbar").autocomplete({
   },
 });
 
+//closing autocomplete if search is cleared
 $(document).ready(function() {
   if ($('#searchbar').text().value === '') {
     $('#searchbar').autocomplete.close();
